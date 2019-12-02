@@ -19,9 +19,9 @@ router.use('/admin', require('./router/admin')) // 引入路由js文件
 // 渲染ejs模板配置
 ejs(app, {
   root: path.resolve(__dirname,'template'), // 去哪个文件夹下找ejs模板
-  layout: false,
-  viewExt: 'ejs',
-  cache: false,
+  layout: false, // ejs 会自动添加一层文件名 false禁止添加
+  viewExt: 'ejs', // 模板扩展
+  cache: false, // 缓存 上线的时候有缓存会减轻服务器压力
   debug: false
 })
 app.use(bodyParser())
