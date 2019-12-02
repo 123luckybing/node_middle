@@ -17,12 +17,12 @@
         <input type="text" class='pwd'>
     </p>
     <button class='btn'>提交</button>
+    <p class='result'></p>
     <script>
         $(function(){
             $('.btn').click(function(){
                 var name = $('.username').val()
                 var password = $('.pwd').val()
-                
                 $.ajax({
                     url: '/admin/login', // 需要自己写一个接口 router那里
                     method: 'post',
@@ -31,6 +31,7 @@
                         password
                     },
                     success: function(data) {
+                        $('.result').html('负责人：' + data.person)
                         console.log(data) // 接口返回值
                     }
                 })

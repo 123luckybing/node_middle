@@ -18,7 +18,7 @@ router.get('/', (ctx) => { ctx.body = 'home' }) // 不渲染ejs模板，返回�
 router.use('/admin', require('./router/admin')) // 引入路由js文件
 // 渲染ejs模板配置
 ejs(app, {
-  root: path.resolve(__dirname,'template'), // ejs根目录
+  root: path.resolve(__dirname,'template'), // 去哪个文件夹下找ejs模板
   layout: false,
   viewExt: 'ejs',
   cache: false,

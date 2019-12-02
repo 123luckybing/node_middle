@@ -7,17 +7,28 @@ let router = new Router()
 router.get('/', async (ctx) => {
   await ctx.render('admin/index') // template 文件夹下的
 })
-
-router.post('/login', async (ctx) => {
-  let { name, password } = ctx.request.body // post 数据在body里
-  let result = await axios({
-    url: '后端真正接口',
-    method: 'post',
-    params: {
-      name,
-      password
+router.get('/test', async (ctx) => {
+  await ctx.render('admin/test', {
+    title: 'ssr',
+    actress: {
+      name: '刘诗诗',
+      work: '《步步惊心》'
     }
   })
+})
+router.post('/login', async (ctx) => {
+  let { name, password } = ctx.request.body // post 数据在body里
+  // let result = await axios({
+  //   url: '后端真正接口',
+  //   method: 'post',
+  //   params: {
+  //     name,
+  //     password
+  //   }
+  // })
+  let result = {
+    code: 3
+  }
   console.log(result) // 此时的result 是后端返回的数据
   // 前端自己包装 如果接口不成功 通过code值判断问题，加上问题处理人
   // ctx.body 返回给前端
